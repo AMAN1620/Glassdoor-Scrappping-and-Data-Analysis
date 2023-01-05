@@ -13,7 +13,7 @@ data = pd.DataFrame(df)
 
 # salary parsing 
 data = data[data['Salary Estimate'] != '-1']
-data_temp = data
+data_temp = data99
 
 data_temp.drop('Unnamed: 0',axis = 1,inplace=True)
 data_temp['hourly '] = data_temp['Salary Estimate'].apply(lambda x : 1 if 'per hour' in x.lower() else 0)
@@ -67,7 +67,8 @@ print(data_temp.sql.value_counts())
 data_temp['excel'] = data_temp['Job Description'].apply(lambda x: 1 if 'excel' in x.lower() else 0)
 print(data_temp.excel.value_counts())
 
+
 data_temp.to_csv('jobs_cleaned_data.csv',index=False)
 
-cleaned = pd.read_csv('jobs_cleaned_data.csv')
-print(cleaned.head())
+cleaned = pd.read_csv('jobs_cleaned_data.csv')  
+
